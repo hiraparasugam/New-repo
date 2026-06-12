@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Quotes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2b2d42, #8d99ae);
+            color: #edf2f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2.6rem;
+            letter-spacing: 1px;
+        }
+        .quote-card {
+            margin: 30px 0;
+            padding: 24px;
+            border-radius: 16px;
+            background: rgba(237, 242, 244, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        .quote-text {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .quote-author {
+            font-size: 1rem;
+            color: #ced4da;
+        }
+        button {
+            margin-top: 10px;
+            padding: 14px 26px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            background: #ef233c;
+            color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(239, 35, 60, 0.25);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #a8dadc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Motivation</h1>
+        <div class="quote-card">
+            <p class="quote-text" id="quoteText">"Believe you can and you're halfway there."</p>
+            <p class="quote-author" id="quoteAuthor">— Theodore Roosevelt</p>
+        </div>
+        <button id="newQuoteBtn">Show another quote</button>
+        <p class="footer">Refresh your mindset with a new quote whenever you need a boost.</p>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+            { text: "The future depends on what you do today.", author: "Mahatma Gandhi" },
+            { text: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "Your limitation—it's only your imagination.", author: "Unknown" },
+            { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+            { text: "Dream it. Wish it. Do it.", author: "Unknown" },
+            { text: "Great things never come from comfort zones.", author: "Unknown" },
+            { text: "Don't stop when you're tired. Stop when you're done.", author: "Marilyn Monroe" }
+        ];
+
+        const quoteText = document.getElementById('quoteText');
+        const quoteAuthor = document.getElementById('quoteAuthor');
+        const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+        function getRandomQuote() {
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        function showQuote() {
+            const quote = getRandomQuote();
+            quoteText.textContent = `"${quote.text}"`;
+            quoteAuthor.textContent = `— ${quote.author}`;
+        }
+
+        newQuoteBtn.addEventListener('click', showQuote);
+    </script>
+</body>
+</html>
